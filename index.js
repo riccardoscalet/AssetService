@@ -4,6 +4,8 @@ module.exports = function(db){
     return {
         addAsset: function(db) {
             return "aaa";
+            
+                         
         },
 
         modifyState: function() {
