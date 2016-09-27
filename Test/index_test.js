@@ -8,11 +8,11 @@ const mymod = require('../');
 
 
 
-test('addAsset', function(t) {
+test('addAsset - With ok parameters - Should complete operation', function(t) {
     //Arrange
     var sut = new mymod(memdb());
     var newAsset = {
-        name: "powerfull banana",
+        name: "powerfullll banana",
         state: 0
     }
 
@@ -21,5 +21,19 @@ test('addAsset', function(t) {
     //Act
     sut.addAsset(newAsset, function() {
         t.pass("Funziona!");
+    });
+});
+
+test('modifyState - ', function(t) {
+    //Arrange
+    var sut = new mymod(memdb());
+    var updatedAsset = {
+        name: "powerfullllll pineapple",
+        state: 0
+    }
+
+    //Act
+    sut.modifyState(updatedAsset, function() {
+        t.pass("It wooorksss");
     });
 });
