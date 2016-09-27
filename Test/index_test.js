@@ -11,10 +11,14 @@ const mymod = require('../');
 test('addAsset', function(t){
     //Arrange
     var sut = new mymod(memdb());
-
+    var newAsset = {
+        name : "powerfull banana",
+        state : 0
+    }
     //Act
-    var newAsset = sut.addAsset();
+    sut.addAsset(newAsset, function(){
+        t.pass("funziona!");
+    });
 
-    t.equal(newAsset, "aaa");
     t.end();
 });

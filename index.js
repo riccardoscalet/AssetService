@@ -2,15 +2,16 @@
 
 module.exports = function(db){
     return {
-        addAsset: function(db) {
-            return "aaa";
+        addAsset: function(asset, cb) {
+                db.put(asset.name, asset.state, null, cb);
+            
         },
 
-        modifyState: function() {
+        modifyState: function(asset) {
 
         },
 
-        getState: function(){
+        getState: function(asset){
 
         }
     }
