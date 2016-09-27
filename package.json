@@ -11,5 +11,10 @@
     "url": "https://github.com/riccardoscalet/AssetService/"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "memdb": "^1.3.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0"
+  }
 }

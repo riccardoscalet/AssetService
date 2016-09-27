@@ -1,5 +1,17 @@
 'use strict'
 
-module.exports = {
-    theAnswer: 42
+module.exports = function(db){
+    return {
+        addAsset: function(db) {
+            return "aaa";
+        },
+
+        modifyState: function() {
+
+        },
+
+        getState: function(){
+
+        }
+    }
 }
