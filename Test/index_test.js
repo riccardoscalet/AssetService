@@ -24,7 +24,7 @@ test('addAsset - With ok parameters - Should complete operation', function(t) {
     });
 });
 
-test('modifyState - ', function(t) {
+test('modifyState - Without asset on DB - Should return err', function(t) {
     //Arrange
     var sut = new mymod(memdb());
     var updatedAsset = {
@@ -32,10 +32,10 @@ test('modifyState - ', function(t) {
         state: 0
     }
 
-    t.plan(0);
-
     //Act
-    sut.modifyState(updatedAsset, function() {
-        t.pass("It wooorksss");
+    sut.modifyState(updatedAsset, function(err, value) {
+        t.notEqual(err, null);
     });
+
+    t.end();
 });
