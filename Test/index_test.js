@@ -32,6 +32,8 @@ test('modifyState - ', function(t) {
         state: 0
     }
 
+    t.plan(0);
+
     //Act
     sut.modifyState(updatedAsset, function() {
         t.pass("It wooorksss");
