@@ -75,7 +75,7 @@ test('getState - Without asset on DB - Should return err', function(t) {
 
     //Act
     t.plan(1);
-    sut.getState(getAsset, function(err, value) {
+    sut.getState(getAsset, function(err, state) {
         t.notEqual(err, null);
     });
 
@@ -87,14 +87,14 @@ test('getState - With asset on DB - Should complete operation', function(t) {
 
     var asset = {
         name: "existing banana",
-        state : 1
+        state: 1
     }
     sut.addAsset(asset);
+
     //Act
     t.plan(2);
-    sut.getState(asset, function(err, value) {
+    sut.getState(asset, function(err, state) {
         t.assert(err == null);
-        t.equal(value, 1);
+        t.equal(state, 1);
     });
-
 });
