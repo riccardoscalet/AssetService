@@ -27,15 +27,39 @@ test('addAsset - With ok parameters - Should complete operation', function(t) {
 test('modifyState - Without asset on DB - Should return err', function(t) {
     //Arrange
     var sut = new mymod(memdb());
+
     var updatedAsset = {
         name: "powerfullllll pineapple",
         state: 0
     }
 
     //Act
+    t.plan(1);
     sut.modifyState(updatedAsset, function(err, value) {
         t.notEqual(err, null);
     });
 
-    t.end();
+});
+
+test('modifyState - With asset on DB - Should complete operation', function(t) {
+    //Arrange
+    var sut = new mymod(memdb());
+
+    var newAsset = {
+        name: "normal pineapple",
+        state: 0
+    }
+    sut.addAsset(newAsset);
+
+    var updatedAsset = {
+        name: "normal pineapple",
+        state: 0
+    }
+
+    //Act
+    t.plan(1);
+    sut.modifyState(updatedAsset, function(err, value) {
+        t.assert(err == null);
+    });
+
 });
