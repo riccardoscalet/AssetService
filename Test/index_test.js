@@ -63,3 +63,38 @@ test('modifyState - With asset on DB - Should complete operation', function(t) {
     });
 
 });
+
+
+test('getState - Without asset on DB - Should return err', function(t) {
+    //Arrange
+    var sut = new mymod(memdb());
+
+    var getAsset = {
+        name: "not existing pineapple",
+    }
+
+    //Act
+    t.plan(1);
+    sut.getState(getAsset, function(err, value) {
+        t.notEqual(err, null);
+    });
+
+});
+
+test('getState - With asset on DB - Should complete operation', function(t) {
+    //Arrange
+    var sut = new mymod(memdb());
+
+    var asset = {
+        name: "existing banana",
+        state : 1
+    }
+    sut.addAsset(asset);
+    //Act
+    t.plan(2);
+    sut.getState(asset, function(err, value) {
+        t.assert(err == null);
+        t.equal(value, 1);
+    });
+
+});

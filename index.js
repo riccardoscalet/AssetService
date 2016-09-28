@@ -13,8 +13,11 @@ module.exports = function(db) {
             })
         },
 
-        getState: function(asset) {
-
+        getState: function(asset, cb) {
+            db.get(asset.name, function(err, value) {
+                if (err) return cb(err);
+                cb(null, value.state);
+            })
         }
     }
 }
